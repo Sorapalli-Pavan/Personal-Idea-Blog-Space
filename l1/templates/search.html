@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Ideas</title>
+</head>
+<body>
+    <h1>Search for you topic</h1>
+    <img src="{{ url_for('static', filename='2.jpg',) }}"  alt="Image" width="400" height="400" align="right">
+
+    <form method="POST" action="/">
+        <input type="text" name="search_query" placeholder="Search for topic">
+        <button type="submit">Search</button>
+    </form>
+    
+    <h2>Relevant Topics:</h2>
+    <ul>
+        {% for topic in topics %}
+        <li><a href="{{ topic.link }}">{{ topic.topic1 }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('submit_idea') }}">Do You Want to submit an Idea</a>
+    <br>
+    <a href="{{url_for('logining')}}">login</a>
+</body>
+</html>
